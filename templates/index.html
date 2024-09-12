@@ -12,7 +12,7 @@
         <h1>Sentiment Analysis Prediction</h1>
         <form id="sentiment-form" method="POST" action="/predict">
             <textarea name="text" id="text-input" placeholder="Enter your text here..." required></textarea>
-            <button type="submit" id="predict-btn">Predict Sentiment</button>
+            <button type="submit" id="predict-btn" disabled>Predict Sentiment</button>
         </form>
         <div id="result" class="result {% if prediction %}show{% endif %}">
             <h2>The sentiment is: <span id="sentiment">{{ prediction }}</span></h2>

@@ -1,12 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('sentiment-form');
+    const textInput = document.getElementById('text-input');
+    const predictBtn = document.getElementById('predict-btn');
     const result = document.getElementById('result');
     const loading = document.getElementById('loading');
     const sentimentSpan = document.getElementById('sentiment');
 
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
+    function predictSentiment() {
         const formData = new FormData(form);
         
         // Show loading spinner
@@ -42,6 +42,28 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(error => {
             console.error('Error:', error);
             loading.style.display = 'none';
+            result.classList.add('show');
+            sentimentSpan.textContent = 'Error occurred';
+            sentimentSpan.style.color = '#e74c3c';
         });
+    }
+
+    // Handle form submission (button click)
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        predictSentiment();
+    });
+
+    // Handle Enter key press in textarea
+    textInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            predictSentiment();
+        }
+    });
+
+    // Disable/Enable button based on input
+    textInput.addEventListener('input', function() {
+        predictBtn.disabled = this.value.trim().length === 0;
     });
 });

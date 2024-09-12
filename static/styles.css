@@ -100,3 +100,12 @@ button:hover {
     margin-top: 0.5rem;
     color: #7f8c8d;
 }
+
+button:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+}
+
+button:not(:disabled):hover {
+    background-color: #2980b9;
+}
