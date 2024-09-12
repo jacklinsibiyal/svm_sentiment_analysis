@@ -19,7 +19,7 @@ You can try out the live demo of the sentiment analysis model here: [Sentiment A
 1. **Clone the Repository**
 
     ```bash
-    git clone https://github.com/your-username/svm-sentiment-analysis.git
+    git clone https://github.com/jacklinsibiyal/svm-sentiment-analysis.git
     cd svm-sentiment-analysis
     ```
 
