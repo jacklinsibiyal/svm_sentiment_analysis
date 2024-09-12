@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentiment Analysis Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Sentiment Analysis Prediction</h1>
+        <form id="sentiment-form" method="POST" action="/predict">
+            <textarea name="text" id="text-input" placeholder="Enter your text here..." required></textarea>
+            <button type="submit" id="predict-btn">Predict Sentiment</button>
+        </form>
+        <div id="result" class="result {% if prediction %}show{% endif %}">
+            <h2>The sentiment is: <span id="sentiment">{{ prediction }}</span></h2>
+        </div>
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Analyzing sentiment...</p>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
